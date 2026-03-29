@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Message View </title>
+    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <div class="temp">
+            <div class="page-header">
+                <h1>📋 Message Explorer</h1>
+                <p>View, manage & simulate real-time fetched Messages from Portfolio</p>
+                
+            </div>
+            <a class="portfolio-div" href="portfolio-web.html"><i class='fas fa-user-circle portfolio' title="Back to Portfolio"></i></a>
+        </div>
+
+
+
+        <div class="toolbar">
+            <div class="stats-badge">
+                📊 Total records: <span id="recordCount">0</span>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="refreshBtn">
+                    <i class="fa fa-refresh" style="font-size:15px"></i>
+                    Refresh / Fetch from DB
+                </button>
+                <!-- <button class="btn btn-outline" id="addSampleBtn"> Add Sample Record</button> -->
+                <button class="btn btn-outline" id="clearAllBtn">🗑️ Clear All</button>
+                <div class="table-controls">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" class="btn-outline" placeholder="Search messages...">
+                    </div>
+                    <select id="statusFilter" class="btn-outline">
+                        <option value="all">All</option>
+                        <option value="read">Read</option>
+                        <option value="unread">Unread</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Dynamic message panel: shows fetch notifications & DB actions -->
+        <div id="globalMessage" class="message-area" style="display: none;">
+            <div class="message-text">
+                <span>💬</span>
+                <span id="messageContent">Message will appear here</span>
+            </div>
+            <button class="close-message" id="dismissMsgBtn">✕</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th style="width: 150px;">Status</th>
+                        <th style="width: 60px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- dynamic rows injected via JS -->
+                    <tr class="empty-row">
+                        <td colspan="6">📭 No records found. Click "Fetch / Refresh from DB" to load dataset.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <ul class="pagination" id="pagination"></ul>
+        <div class="footer-note">
+            &copy; 2026 Gulnaaz. All Rights Reserved.
+        </div>
+        <!-- <footer>
+            <div class="container">
+                <p>&copy; 2026 Gulnaaz. All Rights Reserved.</p>
+            </div>
+        </footer> -->
+    </div>
+
+    <script src="js/message.js"></script>
+
+</body>
+
+</html>
